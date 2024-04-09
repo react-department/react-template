@@ -1,0 +1,19 @@
+.loginLabel {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  &.loginLabelError {
+    margin-bottom: 0;
+  }
+}
+
+.errorMessage {
+  color: red;
+  font-size: 12px;
+  margin-bottom: 5px;
+  text-transform: initial;
+}
+
+.storiesWrapper {
+  width: 250px;
+}

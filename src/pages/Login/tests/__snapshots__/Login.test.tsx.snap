@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Login /> should render component 1`] = `
+<DocumentFragment>
+  <div
+    class="loginForm"
+  >
+    <a
+      href="undefined/users"
+      rel="noreferrer"
+      target="_blank"
+    >
+      Use login and password from this JSON
+    </a>
+    <form>
+      <label
+        class="loginLabel "
+        for=":r0:-username"
+      >
+        <span>
+          User Name
+        </span>
+        <input
+          id=":r0:-username"
+          name="username"
+        />
+      </label>
+      <label
+        class="loginLabel "
+        for=":r1:-password"
+      >
+        <span>
+          Password
+        </span>
+        <input
+          id=":r1:-password"
+          name="password"
+          type="PASSWORD"
+        />
+      </label>
+      <input
+        type="submit"
+      />
+    </form>
+  </div>
+</DocumentFragment>
+`;

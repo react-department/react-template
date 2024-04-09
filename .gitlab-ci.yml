@@ -1,0 +1,92 @@
+stages:
+  - lint
+  - test
+  - sonar
+  - build
+  - deploy
+
+variables:
+  CI_GITLAB_API_TOKEN: $CI_GITLAB_API_TOKEN
+  DOCKER_REPOSITORY_IMAGE: $DOCKER_REPOSITORY_IMAGE
+
+lint:
+  stage: lint
+  only:
+    - main
+    - develop
+    - merge_requests
+  image: $BUILD_DOCKER_IMAGE
+  script:
+    - docker login -u gitlab-ci-token -p ${CI_BUILD_TOKEN} ${CI_REGISTRY}
+    - docker build --network=host -t react-${CI_COMMIT_SHA}:latest -f DockerfileCI .
+    - docker run --rm --name react-${CI_COMMIT_SHA} react-${CI_COMMIT_SHA}:latest npm run lint
+
+test:
+  stage: test
+  only:
+    - main
+    - develop
+    - merge_requests
+  image: $BUILD_DOCKER_IMAGE
+  script:
+    - docker login -u gitlab-ci-token -p ${CI_BUILD_TOKEN} ${CI_REGISTRY}
+    - docker build --network=host -t react-${CI_COMMIT_SHA}:latest -f DockerfileCI .
+    - docker run --rm --name react-${CI_COMMIT_SHA} react-${CI_COMMIT_SHA}:latest npm run test-ci
+
+sonarqube-check:
+  stage: sonar
+  tags:
+    - kuber
+  image:
+    name: sonarsource/sonar-scanner-cli:latest
+    entrypoint: [""]
+  variables:
+    SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"
+    GIT_DEPTH: "0"
+  cache:
+    key: "${CI_JOB_NAME}"
+    paths:
+      - .sonar/cache
+  script:
+    - sonar-scanner
+  allow_failure: true
+  only:
+    - main
+    - develop
+    - merge_requests
+
+sonarqube-pr-decoration:
+  stage: sonar
+  script:
+    - echo sonar.pullrequest.key=$CI_MERGE_REQUEST_IID >> sonar-project.properties
+    - echo sonar.pullrequest.branch=$CI_MERGE_REQUEST_BRANCH_NAME >> sonar-project.properties
+  only:
+    - main
+    - develop
+    - merge_requests
+  tags:
+    - kuber
+
+build:
+  stage: build
+  only:
+    - main
+    - develop
+  image: $BUILD_DOCKER_IMAGE
+  script:
+    - docker login -u gitlab-ci-token -p ${CI_BUILD_TOKEN} ${CI_REGISTRY}
+    - >
+      docker build
+      --build-arg SKIP_PREFLIGHT_CHECK=$SKIP_PREFLIGHT_CHECK
+      --network=host -t ${DOCKER_REPOSITORY_IMAGE} .
+    - docker push ${DOCKER_REPOSITORY_IMAGE}
+
+deploy:
+  stage: deploy
+  only:
+    - main
+    - develop
+  image: $DEPLOY_DOCKER_IMAGE
+  script:
+    - grdp-ctl
+

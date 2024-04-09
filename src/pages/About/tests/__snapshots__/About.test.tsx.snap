@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<About /> should render component 1`] = `
+<DocumentFragment>
+  <div>
+    <p>
+      About
+    </p>
+  </div>
+</DocumentFragment>
+`;

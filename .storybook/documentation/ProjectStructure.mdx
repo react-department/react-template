@@ -1,0 +1,63 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Project Structure" />
+
+# Project structure
+```
+├── .husky //pre-commit and pre-push hooks
+├── .storybook // storybook configuration and stories
+│   ├── decorators // storybook decorators for preview and stories
+│   ├── stories // storybook stories
+│   ├── main.js // storybook configuration
+│   ├── preview.js // storybook preview configuration
+├── public // public folder with static files, robots.txt, favicon, etc.
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── manifest.json
+│   ├── robots.txt
+├── src // source folder with all project files
+│   ├── assets // assets folder with images, fonts, etc.
+│   │   ├── fonts
+│   │   ├── images
+│   ├── components // folder with design system components and components that can be shared between pages
+│   │   ├── Button
+│   │   ├── ...
+│   ├── constants // folder with constants that can be shared between pages and components
+│   │   ├── StatusCodes.ts
+│   │   ├── ...
+│   ├── hooks // folder with custom hooks that can be shared between pages and components
+│   │   ├── useErrorMessages.ts
+│   │   ├── ...
+│   ├── i18n // folder with i18n configuration and translations
+│   │   ├── en
+│   │   ├── ...
+│   │   ├── index.ts
+│   ├── layout // folder with layout components like page layout, header, footer etc.
+│   │   ├── ...
+│   ├── pages // folder with pages
+│   │   ├── ...
+│   ├── store // folder with redu-toolkit store configuration
+│   │   ├── apis // folder with api configuration for redux-toolkit-query. Each api should be in separate file
+│   │   ├── hooks // folder with custom hooks for redux-toolkit-query
+│   │   ├── slices // folder with redux-toolkit slices. Each subfolder should contain slice and can contain hooks and apis injections
+│   │   │   ├── translates
+│   │   │   ├── ...
+│   │   ├── tags // folder with tags for redux-toolkit-query
+│   │   │   ├── ...
+│   │   ├── types // folder with types for redux-toolkit-query
+│   │   │   ├── ...
+│   │   ├── store.ts
+│   ├── styles // folder with global styles for the project
+│   │   ├── ...
+│   ├── utils // folder with utils functions that can be shared between pages and components
+│   │   ├── ...
+│   ├── App.tsx // main application component
+│   ├── index.tsx
+│   └── ...
+├── .env
+├── .env.example
+├── .eslintignore
+├── .eslintrc.json
+├── .gitignore
+└── ...
+```

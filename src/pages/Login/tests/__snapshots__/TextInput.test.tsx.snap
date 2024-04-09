@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TextInput /> should render component 1`] = `
+<DocumentFragment>
+  <label
+    class="loginLabel "
+    for=":r0:-username"
+  >
+    <span>
+      test
+    </span>
+    <input
+      id=":r0:-username"
+    />
+  </label>
+</DocumentFragment>
+`;

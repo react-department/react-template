@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PageProtected /> should render component 1`] = `
+<DocumentFragment>
+  <div
+    class="page"
+  >
+    <header
+      class="header"
+      data-testid="header"
+    >
+      <h2
+        class="appSubtitle"
+        data-testid="subtitle"
+      >
+        Try to build something great
+      </h2>
+      <nav
+        class="headerNav"
+      >
+        <a
+          class="headerNavLink"
+          href="/"
+        >
+          Home
+        </a>
+        <a
+          class="headerNavLink"
+          href="/about"
+        >
+          About
+        </a>
+      </nav>
+      <div
+        class="toggleLanguage"
+      >
+        <span>
+          <a
+            class="linkButton"
+            data-testid="logoutButton"
+            href="/login"
+          >
+            Logout(John)
+          </a>
+        </span>
+        <button
+          data-testid="toggleLanguageButton"
+          type="button"
+        >
+          EN
+        </button>
+      </div>
+    </header>
+    <h1
+      class="appTitle"
+      data-testid="mainTitle"
+    >
+      Home
+    </h1>
+  </div>
+</DocumentFragment>
+`;

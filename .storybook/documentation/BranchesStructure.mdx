@@ -1,0 +1,23 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Branches structure" />
+
+# Branches structure
+
+- ```main``` - production branch with stable code that deploys to the production server.
+Default branch in the project.
+
+- ```develop``` - branch for the development server that includes the last changes
+and is ready for QA after checking by the developer and lead. This branch
+merges with the main after successful QA. The lead is a responsible person
+for the successful merge.
+
+- ```staging```(optional) - for the complex projects with a more strict review
+structure allowed another environment. This is a mimic of the production
+server with the same configuration and settings.
+Merge flow in this case - ```develop -> staging -> main```.
+In case of urgent hotfixes that would fix critical bugs, it allowed merging
+them to the staging first to make the build and release process faster.
+In this case merge process ```staging -> main```, ```staging -> develop```.
+
+- ```feature``` and ```bugfix``` branches should be named with the ticket number e.g. ONIX-1234
