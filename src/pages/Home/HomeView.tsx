@@ -20,7 +20,7 @@ function HomeView(): ReactElement {
         ) : (
           <>
             <button type="button" onClick={onGetJoke}>{ t('home.getJoke') }</button>
-            <p>{data?.value}</p>
+            <p className={styles.joke}>{data?.value}</p>
           </>
         )}
       </div>

@@ -5,5 +5,6 @@ export const testIdHeader = 'header';
 export const testIdSubtitle = 'subtitle';
 export const testIdMainTitle = 'mainTitle';
 export const testIdToggleLanguageButton = 'toggleLanguageButton';
+export const testIdToggleThemeButton = 'toggleThemeButton';
 export const testIdLogoutButton = 'logoutButton';
 export const testIdLoginButton = 'loginButton';

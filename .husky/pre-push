@@ -2,5 +2,6 @@
 . "$(dirname "$0")/_/husky.sh"
 
 npm run lint
+npm run find-deadcode
 npm run storybook-check
 npm run test-check

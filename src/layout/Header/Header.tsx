@@ -5,16 +5,15 @@ import LinkButton from '../../components/LinkButton/LinkButton';
 import Loader from '../../components/Loader/Loader';
 import Subtitle from '../../components/Subtitle/Subtitle';
 import {
-  testIdHeader,
-  testIdLoginButton,
-  testIdLogoutButton,
-  testIdToggleLanguageButton,
+  testIdHeader, testIdLoginButton, testIdLogoutButton, testIdToggleLanguageButton, testIdToggleThemeButton,
 } from '../../constants/TestId';
 import dummyAuth from '../../store/apis/dummy';
 import { useAppDispatch, useAppSelector } from '../../store/hooks/useApp';
 import { useFetchUserQuery } from '../../store/slices/auth/apis/dummyAuth';
 import { selectCurrentUser, selectUserId } from '../../store/slices/auth/selectors';
 import { logout } from '../../store/slices/auth/slice';
+import selectCurrentTheme from '../../store/slices/theme/selectors';
+import { toggleTheme } from '../../store/slices/theme/slice';
 import { selectLocale } from '../../store/slices/translates/selectors';
 import { toggleLocale } from '../../store/slices/translates/slice';
 
@@ -30,6 +29,7 @@ function Header(): ReactElement {
   const dispatch = useAppDispatch();
   const id = useAppSelector(selectUserId);
   const locale = useAppSelector(selectLocale);
+  const theme = useAppSelector(selectCurrentTheme);
   const { data, isFetching } = useFetchUserQuery(id, {
     skip: !id,
     selectFromResult: (result) => ({ ...result, data: selectCurrentUser(result.data, id) }),
@@ -38,6 +38,11 @@ function Header(): ReactElement {
     dispatch(dummyAuth.util.resetApiState());
     dispatch(logout());
   };
+
+  const onChangeTheme = () => {
+    dispatch(toggleTheme());
+  };
+
   return (
     <header className={styles.header} data-testid={testIdHeader}>
       <Subtitle text={t('common.welcomeMessage')} />
@@ -70,6 +75,14 @@ function Header(): ReactElement {
             )}
           </span>
         )}
+        <button
+          data-testid={testIdToggleThemeButton}
+          type="button"
+          onClick={onChangeTheme}
+        >
+          {t(`common.theme.${theme}`)}
+        </button>
+
         <button
           data-testid={testIdToggleLanguageButton}
           type="button"

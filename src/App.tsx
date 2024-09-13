@@ -2,6 +2,7 @@ import './i18n';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
+import useTheme from './hooks/useTheme';
 import Page from './layout/Page/Page';
 import PageProtected from './layout/Page/PageProtected';
 import About from './pages/About/About';
@@ -13,6 +14,8 @@ import type { ReactElement } from 'react';
 import './styles/global.scss';
 
 function App(): ReactElement {
+  useTheme();
+
   return (
     <BrowserRouter>
       <Routes>

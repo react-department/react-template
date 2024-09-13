@@ -1,0 +1,16 @@
+$white: #FFF;
+$mineShaft: #222;
+
+html[data-theme="light"] {
+  --color-text: #{$mineShaft};
+  --color-text-minor: #{$white};
+  --color-background: #{$white};
+  --color-background-minor: #{$mineShaft};
+}
+
+html[data-theme="dark"] {
+  --color-text: #{$white};
+  --color-text-minor: #{$mineShaft};
+  --color-background: #{$mineShaft};
+  --color-background-minor: #{$white};
+}

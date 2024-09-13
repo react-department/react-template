@@ -4,12 +4,12 @@ import type { FieldErrors, UseFormRegister } from 'react-hook-form';
 import type ILoginForm from './ILoginForm';
 
 interface ILoginView {
-  onLoginSubmit: () => void;
-  errors: FieldErrors<ILoginForm>;
-  register: UseFormRegister<ILoginForm>
-  isLoading: boolean;
-  isError: boolean;
-  error: FetchBaseQueryError | SerializedError | undefined
+  onLoginSubmit: () => void,
+  errors: FieldErrors<ILoginForm>,
+  register: UseFormRegister<ILoginForm>,
+  isLoading: boolean,
+  isError: boolean,
+  error: FetchBaseQueryError | SerializedError | undefined,
 }
 
 export default ILoginView;

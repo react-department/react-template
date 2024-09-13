@@ -14,7 +14,7 @@ import type { AppStore, RootState } from '../src/store/types/TStore';
 
 interface ExtendedRenderOptions extends Omit<RenderOptions, 'queries'> {
   preloadedState?: PreloadedState<RootState>,
-  store?: AppStore
+  store?: AppStore,
 }
 
 function Wrapper({ children, store }: PropsWithChildren<{ store: AppStore }>): ReactElement {

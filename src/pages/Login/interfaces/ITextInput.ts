@@ -6,23 +6,23 @@ interface ITextInput {
   /**
    * name of the input
    */
-  name: keyof ILoginForm;
+  name: keyof ILoginForm,
   /**
    * label of the input
    */
-  label: string;
+  label: string,
   /**
    * register function from react-hook-form
    */
-  register: UseFormRegister<ILoginForm>;
+  register: UseFormRegister<ILoginForm>,
   /**
    * errors from react-hook-form
    */
-  errors: FieldError | undefined;
+  errors: FieldError | undefined,
   /**
    * type of the input
    */
-  type?: InputTypes;
+  type?: InputTypes,
 }
 
 export default ITextInput;

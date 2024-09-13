@@ -20,7 +20,7 @@ export const toggleLocale = createAsyncThunk(
   },
 );
 
-export const translatesSlice = createSlice({
+const translatesSlice = createSlice({
   name: 'translates',
   initialState,
   reducers: {},

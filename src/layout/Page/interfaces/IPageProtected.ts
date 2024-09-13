@@ -1,3 +1,3 @@
 export default interface IPageProtected {
-  redirectUri: string;
+  redirectUri: string,
 }

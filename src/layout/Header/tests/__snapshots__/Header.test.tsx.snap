@@ -41,6 +41,12 @@ exports[`<Header /> should render component 1`] = `
         </a>
       </span>
       <button
+        data-testid="toggleThemeButton"
+        type="button"
+      >
+        Light
+      </button>
+      <button
         data-testid="toggleLanguageButton"
         type="button"
       >

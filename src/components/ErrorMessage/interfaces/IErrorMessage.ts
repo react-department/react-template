@@ -2,7 +2,7 @@ interface IErrorMessage {
   /**
    * Error message value.
    */
-  message: string | undefined
+  message: string | undefined,
 }
 
 export default IErrorMessage;
